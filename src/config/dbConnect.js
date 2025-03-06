@@ -9,6 +9,7 @@ const dbPassword = process.env.DB_PASS
 let connection
 let bucket
 let pdfFiles
+let videoFiles
 
 async function dbConnection() {
     const uri = `mongodb+srv://${dbUser}:${dbPassword}@cluster0.eqwke.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
@@ -30,6 +31,9 @@ async function dbConnection() {
         pdfFiles = new GridFSBucket(db, {
             bucketName: 'pdfFiles'
         })
+        videoFiles = new GridFSBucket(db, {
+            bucketName: 'videoFiles'
+        })
 
     } catch (error) {
         console.error('dbconnect Error:', {
@@ -40,7 +44,8 @@ async function dbConnection() {
         connection = null
         bucket = null
         pdfFiles = null
+        videoFiles = null
     }
 }
 
-export { dbConnection, connection, bucket, pdfFiles }
+export { dbConnection, connection, bucket, pdfFiles, videoFiles }

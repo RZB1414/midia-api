@@ -1,7 +1,6 @@
 import fileSchema from '../models/File.js'
 import { pdfFiles } from '../config/dbConnect.js'
 import mongoose from 'mongoose';
-import { PDFDocument } from 'pdf-lib';
 
 class FileController {
 
